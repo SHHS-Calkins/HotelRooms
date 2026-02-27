@@ -21,8 +21,18 @@ public class thingie {
         System.out.println("Hurry up and give a method: ");
         switch(scan.nextLine()) {
             case "addRoom":
-                System.out.println("1: AddNumber(Number)\n2: AddNumber(Number, Occupied?, Name)");
-                switch(scan.nextInt()) {
+                exceptionChecker = false;
+                        do {
+                            try{
+                            System.out.println("1: AddNumber(Number)\n2: AddNumber(Number, Occupied?, Name)");
+                            num = scan.nextInt();
+                            exceptionChecker = true;
+                            } catch(InputMismatchException e) {
+                                scan.next();
+                                System.out.println("Not a number, Stupid.");
+                            }
+                        } while (!exceptionChecker);
+                switch(num) {
                     case 1: 
                         exceptionChecker = false;
                         do {
@@ -71,8 +81,18 @@ public class thingie {
                 System.out.println(info);
                 break;
             case "RemoveRoom":
-                System.out.println("Room# to erase from Existence: ");
-                info.RemoveRoom(scan.nextInt());
+                exceptionChecker = false;
+                        do {
+                            try{
+                            System.out.println("Number?");
+                            num = scan.nextInt();
+                            exceptionChecker = true;
+                            } catch(InputMismatchException e) {
+                                scan.next();
+                                System.out.println("Room# to erase from Existence: ");
+                            }
+                        } while (!exceptionChecker);
+                info.RemoveRoom(num);
                 break;
             case "availableRoomNumbers":
                 System.out.println(info.availableRoomNumbers());
@@ -80,8 +100,17 @@ public class thingie {
             case "checkIn":
                 System.out.println("Name: ");
                 name = scan.nextLine();
-                System.out.println("Room#: ");
-                num = scan.nextInt();
+                exceptionChecker = false;
+                        do {
+                            try{
+                            System.out.println("Room#");
+                            num = scan.nextInt();
+                            exceptionChecker = true;
+                            } catch(InputMismatchException e) {
+                                scan.next();
+                                System.out.println("Not a number, try again.");
+                            }
+                        } while (!exceptionChecker);
                 info.checkIn(name, num);
         }
         scan.close();
