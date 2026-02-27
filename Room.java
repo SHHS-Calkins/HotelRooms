@@ -42,7 +42,7 @@ public class Room
   }
 
   public String toString(){
-    return roomNumber+"; "+occupied+"; "+bookingName;
+    return "Room - " + roomNumber + " | Occupied: " + occupied + " | Occupant:  " + bookingName;
   }
 
 }
