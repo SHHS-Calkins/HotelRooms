@@ -9,13 +9,13 @@ public class thingie {
         String name = "";
         Scanner scan = new Scanner(System.in);
         ArrayList<Room> thing = new ArrayList<Room>();
-        thing.add(new Room(1, false, "me"));
-        thing.add(new Room(2, false, "me"));
-        thing.add(new Room(3, false, "me"));
+        thing.add(new Room(1, false, null));
+        thing.add(new Room(2, false, null));
+        thing.add(new Room(3, false, null));
         OccupancyInfo info = new OccupancyInfo(thing);
         info.addRoom(4);
-        info.addRoom(5, true, "yes");
-        info.addRoom(6, false, "PersonWhoShouldntBeThere");
+        info.addRoom(5, true, null);
+        info.addRoom(6, false, null);
         System.out.println(info);
         while(1 == 1) {
         System.out.println("Hurry up and give a method: ");
@@ -80,19 +80,20 @@ public class thingie {
             case "toString":
                 System.out.println(info);
                 break;
-            case "RemoveRoom":
+            case "removeRoom":
                 exceptionChecker = false;
                         do {
                             try{
-                            System.out.println("Number?");
+                            System.out.println("Room# to erase from Existence: ");
                             num = scan.nextInt();
+                            info.RemoveRoom(num);
                             exceptionChecker = true;
                             } catch(InputMismatchException e) {
                                 scan.next();
-                                System.out.println("Room# to erase from Existence: ");
+                                System.out.println("Don't do that.");
                             }
                         } while (!exceptionChecker);
-                info.RemoveRoom(num);
+                
                 break;
             case "availableRoomNumbers":
                 System.out.println(info.availableRoomNumbers());
@@ -116,6 +117,10 @@ public class thingie {
             case "q":
                 scan.close();
                 System.exit(0);
+                break;
+            default:
+                System.out.println("I have no idea what you're saying.");
+                break;
         }
     }
     }
