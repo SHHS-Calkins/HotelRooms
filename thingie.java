@@ -112,6 +112,10 @@ public class thingie {
                             }
                         } while (!exceptionChecker);
                 info.checkIn(name, num);
+                break;
+            case "q":
+                scan.close();
+                System.exit(0);
         }
     }
     }
