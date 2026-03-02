@@ -17,7 +17,7 @@ public class thingie {
         info.addRoom(5, true, "yes");
         info.addRoom(6, false, "PersonWhoShouldntBeThere");
         System.out.println(info);
-
+        while(1 == 1) {
         System.out.println("Hurry up and give a method: ");
         switch(scan.nextLine()) {
             case "addRoom":
@@ -113,6 +113,6 @@ public class thingie {
                         } while (!exceptionChecker);
                 info.checkIn(name, num);
         }
-        scan.close();
+    }
     }
 }
